@@ -36,6 +36,13 @@ pipeline {
           sh 'mvn deploy'
       }
     }
+      
+    post{
+      failure{
+          echo 'Building failed'
+          emailext body: 'Building failing', subject: 'feedback', to: 'matchumsandy@gmail.com'
+      }
+    }
     
   }
   
