@@ -1,6 +1,10 @@
 pipeline {
 
   agent any
+
+  tools {
+    maven 'maven:3.9.9'
+  }
   
   stages {
     
@@ -8,6 +12,7 @@ pipeline {
       
       steps {
           echo 'building application'
+          sh 'maven clean package'
       }
     }
     
